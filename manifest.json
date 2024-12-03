@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Textmoji Toolbox - Copy/Paste Text Emoji",
-    "description": "A browser extension to copy and text emojis.",
+    "description": "A browser extension to copy text emojis.",
     "version": "1.0",
     "permissions": [
       "clipboardWrite"
