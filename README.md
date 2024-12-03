@@ -1,4 +1,4 @@
-# TextMoji
+# TextMoji - Chrome Extension
 A simple browser extension to copy and use text emojis.
 
 ## Installation
