@@ -69,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         newButton.classList.add('emoji', 'angry');
                     } else if (button.classList.contains("danceBtn")) {
                         newButton.classList.add('emoji', 'dance');
+                    } else  {
+                        newButton.classList.add('emoji');
                     }
 
                     newButton.setAttribute('data-emoji', userTextmoji);
