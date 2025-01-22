@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Textmoji Toolbox - Copy/Paste Text Emoji",
+    "description": "A browser extension to copy text emojis.",
+    "version": "1.018",
+    "permissions": [
+      "clipboardWrite"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "./images/icon-16.png",
+        "48": "./images/icon-48.png",
+        "128": "./images/icon-128.png"
+
+      }
+    },
+    "icons": {
+      "16": "./images/icon-16.png",
+      "48": "./images/icon-48.png",
+      "128": "./images/icon-128.png"
+
+    }
+  }
+  
+  

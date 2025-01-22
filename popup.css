@@ -1,0 +1,41 @@
+body{
+    width: 500px;
+}
+
+button.emoji{
+    margin: 5px;
+}
+
+.filter-list {
+    margin-bottom: 20px;
+}
+
+.filter {
+    padding: 8px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.emoji-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.emoji {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+
+}
+
+.hidden {
+    display: none;
+}
+
+
