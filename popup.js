@@ -11,19 +11,22 @@ document.addEventListener('DOMContentLoaded', function () {
     filterButtons.forEach(button => {
         button.addEventListener('click', function () {
             const filterClass = button.classList[1]; // Target second class
+            const updatedEmojiButtons = document.querySelectorAll('.emoji'); 
+            // Re-fetch the emojis dynamically
             if (filterClass === "all") {
-                emojiButtons.forEach(emoji => emoji.style.display = "block");
+                updatedEmojiButtons.forEach(emoji => emoji.style.display = "block");
             } else {
-                emojiButtons.forEach(emoji => {
+                updatedEmojiButtons.forEach(emoji => {
                     if (emoji.classList.contains(filterClass)) {
-                        emoji.style.display = "block";  // Show the emoji
+                        emoji.style.display = "block";  
                     } else {
-                        emoji.style.display = "none";   // Hide the emoji
+                        emoji.style.display = "none";   
                     }
                 });
             }
         });
     });
+    
 
     // Emoji copy functionality
     emojiButtons.forEach(button => {
