@@ -4,10 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const toolboxButton = document.getElementById("toolboxButton");
     const toolboxDiv = document.getElementById("toolboxDiv");
 
-    toolboxButton.addEventListener('click', function(){
+    toolboxButton.addEventListener('click', function () {
         toolboxDiv.classList.toggle("hidden");
-
-    })
+    });
 
     filterButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -46,27 +45,37 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Emoji add functionaliy
+    // Emoji add functionality
     const addTextmojiButton = document.getElementById("addTextmoji");
-    addTextmojiButton.addEventListener('click', function(){
-        
-        const userTextmoji = document.getElementById('userTextmoji').value;
-        if (userTextmoji.trim() !==''){
-            // create new textmoji button
-            const newButton = document.createElement('button');
-            newButton.classList.add('emoji', 'happy');
-            newButton.setAttribute('data-emoji', userTextmoji);
-            newButton.textContent = userTextmoji;
+    addTextmojiButton.addEventListener('click', function () {
+        const addFilterDiv = document.getElementById('addFilterDiv');
+        addFilterDiv.classList.toggle("hidden");
 
-            // append new textmoji to emoji list
-            document.querySelector('.emoji-list').appendChild(newButton);
+        const filterAddButtons = document.querySelectorAll('.filterAdd');
 
-            document.getElementById('userTextmoji').value='';
+        filterAddButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const userTextmoji = document.getElementById('userTextmoji').value;
 
-        }
-        
+                if (userTextmoji.trim() !== '') {
+                    // Create new textmoji button
+                    const newButton = document.createElement('button');
+                    if (button.classList.contains("happyBtn")) {
+                        newButton.classList.add('emoji', 'happy');
+                    } else if (button.classList.contains("angryBtn")) {
+                        newButton.classList.add('emoji', 'angry');
+                    } else if (button.classList.contains("danceBtn")) {
+                        newButton.classList.add('emoji', 'dance');
+                    }
 
+                    newButton.setAttribute('data-emoji', userTextmoji);
+                    newButton.textContent = userTextmoji;
 
-
-    })
+                    // Append new textmoji to emoji list
+                    document.querySelector('.emoji-list').appendChild(newButton);
+                    document.getElementById('userTextmoji').value = '';
+                }
+            });
+        });
+    });
 });
