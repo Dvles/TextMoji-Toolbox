@@ -45,4 +45,28 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+
+    // Emoji add functionaliy
+    const addTextmojiButton = document.getElementById("addTextmoji");
+    addTextmojiButton.addEventListener('click', function(){
+        
+        const userTextmoji = document.getElementById('userTextmoji').value;
+        if (userTextmoji.trim() !==''){
+            // create new textmoji button
+            const newButton = document.createElement('button');
+            newButton.classList.add('emoji', 'happy');
+            newButton.setAttribute('data-emoji', userTextmoji);
+            newButton.textContent = userTextmoji;
+
+            // append new textmoji to emoji list
+            document.querySelector('.emoji-list').appendChild(newButton);
+
+            document.getElementById('userTextmoji').value='';
+
+        }
+        
+
+
+
+    })
 });
