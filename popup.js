@@ -79,6 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Append new textmoji to emoji list
                     document.querySelector('.emoji-list').appendChild(newButton);
                     document.getElementById('userTextmoji').value = '';
+                    addFilterDiv.classList.toggle("hidden");
+                    toolboxDiv.classList.toggle("hidden");
                 }
             });
         });
