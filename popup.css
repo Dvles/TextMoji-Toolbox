@@ -31,4 +31,10 @@ button.emoji{
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
+
 }
+
+.hidden {
+    display: none;
+}
+
