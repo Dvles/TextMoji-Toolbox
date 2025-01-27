@@ -73,7 +73,12 @@ button.emoji:hover {
 
 #toolboxDiv {
     margin: 0 20px 0 20px ;
+    text-align: center;
     
+}
+
+#toolboxDiv img {
+    max-width: 150px;
 }
 
 #toolboxButton {
