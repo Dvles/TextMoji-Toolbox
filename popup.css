@@ -4,9 +4,8 @@ body {
     background-color: white; /* White background */
     color: black; /* Black text for better readability */
     border: 2px solid black; /* Add a border to mimic retro UI */
-    padding: 10px;
     margin: 0 auto;
-    box-shadow: 4px 4px 0px #888; /* Subtle shadow for a retro pop-out effect */
+    box-shadow: 4px 4px 0px #afaeaead; /* Subtle shadow for a retro pop-out effect */
 }
 
 button.emoji {
@@ -26,24 +25,31 @@ button.emoji:hover {
     color: black;
 }
 
+
+
 .filter-list {
     margin-bottom: 20px;
-    text-align: center;
-    padding: 5px 0;
+    padding: 5px 20px;
     border-bottom: 2px solid black; /* Divider for retro style */
-    background-color: #F2F2F2; /* Light gray bar */
+    background-color: #7876ff; /* Light gray bar */
+    height: 50px;
+    display: flex; /* Enables flexbox */
+    justify-content: space-between; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
 }
 
 .filter {
     padding: 8px 16px;
     margin-right: 10px;
     cursor: pointer;
-    background-color: #E4E4E4; /* Gray background */
-    color: black;
+    background-color: #000000; /* Gray background */
+    color: rgb(255, 255, 255);
     border: 2px solid black;
     font-family: "Courier New", Courier, monospace;
-    text-transform: uppercase; /* All caps */
-    box-shadow: 2px 2px 0px #888; /* Retro shadow */
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0px #888; 
+    letter-spacing: 1px;
+    
 }
 
 .filter:hover {
@@ -56,42 +62,31 @@ button.emoji:hover {
     flex-wrap: wrap;
     gap: 10px; /* Spacing between emojis */
     justify-content: center;
-    background-color: #F8F8F8; /* Subtle off-white for emoji container */
-    padding: 10px;
-    border: 2px solid black; /* Retro container border */
-    box-shadow: 3px 3px 0px #888; /* Retro pop-out shadow */
+    margin:  25px 0 25px 0;
 }
 
 .hidden {
     display: none;
 }
 
+
+
 #toolboxDiv {
-    background-color: #F8F8F8;
-    border: 2px solid black; /* Retro border */
-    padding: 10px;
-    margin-top: 20px;
-    box-shadow: 3px 3px 0px #888; /* Retro shadow */
+    margin: 0 20px 0 20px ;
+    
 }
 
 #toolboxButton {
-    padding: 10px 15px;
+    padding: 8px 16px;
     cursor: pointer;
-    background-color: #E4E4E4; /* Gray button */
+    background-color: #ffffff; /* Light gray background for toolbox button */
     color: black;
     border: 2px solid black;
     font-family: "Courier New", Courier, monospace;
     text-transform: uppercase;
-    box-shadow: 2px 2px 0px #888; /* Button shadow */
-}
-
-#toolboxButton:hover {
-    background-color: #FFD700; /* Golden yellow for hover */
-    color: black;
-}
-
-#textmojiEditor {
-    margin-top: 15px;
+    box-shadow: 2px 2px 0px #888; 
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 textarea#userTextmoji {
@@ -101,20 +96,44 @@ textarea#userTextmoji {
     color: black;
     border: 2px solid black;
     font-family: "Courier New", Courier, monospace;
-    padding: 5px;
 }
 
+
+#textmojiEditor {
+    margin-top: 15px;
+}
+
+
 button#addTextmoji {
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
     padding: 8px 12px;
-    background-color: #E4E4E4;
+    background-color: #d9adff;
     color: black;
     border: 2px solid black;
     cursor: pointer;
     font-family: "Courier New", Courier, monospace;
     text-transform: uppercase;
-    box-shadow: 2px 2px 0px #888; /* Button shadow */
+    box-shadow: 2px 2px 0px #888; 
+    
 }
+
+button#addTextmoji:hover {
+    background-color: #7876ff !important;
+    color:white !important;
+
+}
+
+#addFilterDiv{
+    margin-bottom: 20px;
+}
+
+
+
+#toolboxButton:hover {
+    background-color: #FFD700; /* Golden yellow for hover */
+    color: black;
+}
+
 
 button#addTextmoji:hover {
     background-color: #87CEEB; /* Sky blue hover effect */
@@ -140,3 +159,39 @@ button.filterAdd:hover {
     background-color: #FFD700; /* Golden yellow hover effect */
     color: black;
 }
+
+footer {
+    background-color: #FFD700;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Distribute space between child divs */
+    align-items: center; /* Align items vertically in the center */
+    padding: 10px; /* Add padding to the footer for spacing */
+    border-top: 2px solid black;
+}
+
+footer div {
+    display: flex;
+}
+
+footer p {
+    margin: 0;
+    padding: 10px;
+    font-size: 13px;
+    
+}
+
+footer p a {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+footer p a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    color: black;
+}
+
+

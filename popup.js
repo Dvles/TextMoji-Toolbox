@@ -3,9 +3,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const emojiButtons = document.querySelectorAll('.emoji');
     const toolboxButton = document.getElementById("toolboxButton");
     const toolboxDiv = document.getElementById("toolboxDiv");
+    const seperator = document.getElementById("seperator");
 
     toolboxButton.addEventListener('click', function () {
         toolboxDiv.classList.toggle("hidden");
+        seperator.classList.toggle("hidden");
     });
 
     filterButtons.forEach(button => {
@@ -81,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('userTextmoji').value = '';
                     addFilterDiv.classList.toggle("hidden");
                     toolboxDiv.classList.toggle("hidden");
+                    seperator.classList.toggle("hidden");
                 }
             });
         });
