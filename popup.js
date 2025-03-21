@@ -88,4 +88,36 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const emojiParts = document.querySelectorAll(".emojiPart");
+        const eyesBtn = document.querySelector(".eyesBtn");
+        const mouthBtn = document.querySelector(".mouthBtn");
+        const armsBtn = document.querySelector(".armsBtn");
+        const toolboxDiv = document.getElementById("toolboxDiv");
+    
+        function showOnly(category) {
+            emojiParts.forEach(part => {
+                if (part.classList.contains(category)) {
+                    part.classList.remove("hidden");
+                } else {
+                    part.classList.add("hidden");
+                }
+            });
+        }
+    
+        if (eyesBtn) eyesBtn.addEventListener("click", () => showOnly("eyes"));
+        if (mouthBtn) mouthBtn.addEventListener("click", () => showOnly("mouth"));
+        if (armsBtn) armsBtn.addEventListener("click", () => showOnly("arms"));
+    });
+    
+    
+    
+    
+
+    
+    
+
+
+    
 });
