@@ -116,4 +116,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     attachEmojiPartListeners();
+
+    // ---- Copy TextMoji Button ----
+    const copyTextMoji = document.getElementById("copyTextMoji");
+    copyTextMoji.addEventListener("click", function () {
+        const emojiText = userTextmoji.value.trim();
+        if (emojiText !== "") {
+            // Copy text to clipboard
+            navigator.clipboard.writeText(emojiText).then(() => {
+                const feedback = document.createElement('span');
+                feedback.textContent = 'Copied!';
+                feedback.style.color = 'green';
+                feedback.style.marginLeft = '10px';
+                copyTextMoji.parentNode.appendChild(feedback);
+
+                setTimeout(() => feedback.remove(), 1000);
+            }).catch(err => console.error('Failed to copy text: ', err));
+        }
+    });
+
+    // ---- Reset Button ----
+    const resetBtn = document.getElementById("resetBtn");
+    resetBtn.addEventListener("click", function(){
+        userTextmoji.value= "";
+    })
+
 });
