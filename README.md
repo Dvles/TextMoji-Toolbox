@@ -1,5 +1,5 @@
 # TextMoji - Chrome Extension
-A simple browser extension to copy and use text emojis.
+A simple browser extension to copy or create custom text emojis.
 
 ## Installation
 
@@ -29,4 +29,4 @@ To install **TextMoji** locally in your browser (e.g., Google Chrome), follow th
 
 ## Contributing
 
-Feel free to fork the repository and make pull requests to improve the extension.
+Feel free to fork the repository and make pull requests to improve the extension. Currently aiming to allow users to save custom text emojis.
