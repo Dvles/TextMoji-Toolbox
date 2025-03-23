@@ -25,37 +25,87 @@ button.emoji:hover {
     color: black;
 }
 
+#textmojiEditor {
+    position: relative; 
+    margin-bottom: 0;
+}
+
 #emojiPartDiv {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px; /* Adjust spacing between buttons */
-    justify-content: space-between; /* Centers buttons */
+    gap: 1px; 
+    justify-content: flex-start; 
     align-items: center;
+    z-index: 1; 
+    background-color: white; 
+    margin: 0 0 15px 0;
+}
+
+textarea#userTextmoji {
+    width: 100%;
+    max-width: 99%;
+    max-height: 70px;
+    background-color: #F8F8F8;
+    color: black;
+    border: 2px solid black;
+    font-family: "Courier New", Courier, monospace;
 }
 
 button.emojiPart {
-    margin: 20px 1px 20px 0px;
     padding: 10px 15px;
     border: 2px solid #000;
     background-color: #E4E4E4;
-    color: black; 
+    color: black;
     font-family: "Courier New", Courier, monospace;
     cursor: pointer;
-    text-transform: uppercase; 
-    box-shadow: 2px 2px 0px #888;
+    text-transform: uppercase;
+    width: 50px; 
+    height: 50px; 
+    display: inline-block; 
+    text-align: center;
+    line-height: 20px !important;
+    margin: 0 0px; 
 }
 
 
-
 button.emojiPart:hover {
-    background-color: #FFD700; 
+    background-color: #FFD700;
+    color: black;
+}
+#eyesBtn, #armsBtn, #mouthBtn {
+    background-color: #bfbeff;
+    color: black;
+}
+
+#resetBtn{
+    background-color: black;
+    color: white;
+}
+
+#resetBtn:hover,button#copyTextMoji:hover {
+    background-color: #FFD700;
     color: black;
 }
 
 #eyesBtn:hover, #armsBtn:hover, #mouthBtn:hover {
-    background-color: #87CEEB; /* Sky blue hover effect */
+    background-color: #87CEEB; 
     color: black;
 }
+
+button#copyTextMoji{
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #ffffff; 
+    color: black;
+    border: 2px solid black;
+    font-family: "Courier New", Courier, monospace;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0px #888; 
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
 
 #textmojiEditor {
 margin-bottom: 30px;
@@ -70,19 +120,19 @@ margin-bottom: 30px;
 .filter-list {
     margin-bottom: 20px;
     padding: 5px 20px;
-    border-bottom: 2px solid black; /* Divider for retro style */
-    background-color: #7876ff; /* Light gray bar */
+    border-bottom: 2px solid black; 
+    background-color: #7876ff; 
     height: 50px;
-    display: flex; /* Enables flexbox */
-    justify-content: space-between; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 .filter {
     padding: 8px 16px;
     margin-right: 10px;
     cursor: pointer;
-    background-color: #000000; /* Gray background */
+    background-color: #000000; 
     color: rgb(255, 255, 255);
     border: 2px solid black;
     font-family: "Courier New", Courier, monospace;
@@ -93,14 +143,14 @@ margin-bottom: 30px;
 }
 
 .filter:hover {
-    background-color: #87CEEB; /* Sky blue for hover */
+    background-color: #87CEEB; 
     color: black;
 }
 
 .emoji-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Spacing between emojis */
+    gap: 10px; 
     justify-content: center;
     margin:  25px 0 25px 0;
 }
@@ -119,7 +169,7 @@ margin-bottom: 30px;
 #toolboxButton {
     padding: 8px 16px;
     cursor: pointer;
-    background-color: #ffffff; /* Light gray background for toolbox button */
+    background-color: #ffffff; 
     color: black;
     border: 2px solid black;
     font-family: "Courier New", Courier, monospace;
@@ -129,14 +179,7 @@ margin-bottom: 30px;
     letter-spacing: 1px;
 }
 
-textarea#userTextmoji {
-    width: 100%;
-    height: 80px;
-    background-color: #F8F8F8;
-    color: black;
-    border: 2px solid black;
-    font-family: "Courier New", Courier, monospace;
-}
+
 
 
 #textmojiEditor {
@@ -170,13 +213,13 @@ button#addTextmoji:hover {
 
 
 #toolboxButton:hover {
-    background-color: #FFD700; /* Golden yellow for hover */
+    background-color: #FFD700; 
     color: black;
 }
 
 
 button#addTextmoji:hover {
-    background-color: #87CEEB; /* Sky blue hover effect */
+    background-color: #87CEEB;
     color: black;
 }
 
@@ -192,11 +235,11 @@ button.filterAdd {
     cursor: pointer;
     font-family: "Courier New", Courier, monospace;
     text-transform: uppercase;
-    box-shadow: 2px 2px 0px #888; /* Shadow for retro effect */
+    box-shadow: 2px 2px 0px #888;
 }
 
 button.filterAdd:hover {
-    background-color: #FFD700; /* Golden yellow hover effect */
+    background-color: #FFD700; 
     color: black;
 }
 
@@ -205,9 +248,9 @@ footer {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between; /* Distribute space between child divs */
-    align-items: center; /* Align items vertically in the center */
-    padding: 10px; /* Add padding to the footer for spacing */
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px; 
     border-top: 2px solid black;
 }
 
