@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const toolboxButton = document.getElementById("toolboxButton");
     const toolboxDiv = document.getElementById("toolboxDiv");
     const seperator = document.getElementById("seperator");
+    const userTextmoji = document.getElementById("userTextmoji");
 
     toolboxButton.addEventListener('click', function () {
         toolboxDiv.classList.toggle("hidden");
@@ -14,110 +15,105 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             const filterClass = button.classList[1]; // Target second class
             const updatedEmojiButtons = document.querySelectorAll('.emoji'); 
-            // Re-fetch the emojis dynamically
+
+            // Show all emojis if "all" is selected
             if (filterClass === "all") {
                 updatedEmojiButtons.forEach(emoji => emoji.style.display = "block");
             } else {
                 updatedEmojiButtons.forEach(emoji => {
-                    if (emoji.classList.contains(filterClass)) {
-                        emoji.style.display = "block";  
-                    } else {
-                        emoji.style.display = "none";   
-                    }
+                    emoji.style.display = emoji.classList.contains(filterClass) ? "block" : "none";
                 });
             }
         });
     });
-    
 
     // Emoji copy functionality
-    emojiButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            const emoji = button.getAttribute('data-emoji'); // Get the emoji text
-
-            // Use the Clipboard API to copy the text to the clipboard
-            navigator.clipboard.writeText(emoji).then(() => {
-                const feedback = document.createElement('span');
-                feedback.textContent = 'Copied!';
-                feedback.style.color = 'green';
-                feedback.style.marginLeft = '10px';
-                button.parentNode.appendChild(feedback);
-
-                setTimeout(() => feedback.remove(), 1000);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        });
-    });
-
-    // Emoji add functionality
-    const addTextmojiButton = document.getElementById("addTextmoji");
-    addTextmojiButton.addEventListener('click', function () {
-        const addFilterDiv = document.getElementById('addFilterDiv');
-        addFilterDiv.classList.toggle("hidden");
-
-        const filterAddButtons = document.querySelectorAll('.filterAdd');
-
-        filterAddButtons.forEach(button => {
+    function attachEmojiCopyListeners() {
+        document.querySelectorAll(".emoji").forEach(button => {
             button.addEventListener('click', function () {
-                const userTextmoji = document.getElementById('userTextmoji').value;
+                const emoji = button.getAttribute('data-emoji');
 
-                if (userTextmoji.trim() !== '') {
-                    // Create new textmoji button
-                    const newButton = document.createElement('button');
-                    if (button.classList.contains("happyBtn")) {
-                        newButton.classList.add('emoji', 'happy');
-                    } else if (button.classList.contains("angryBtn")) {
-                        newButton.classList.add('emoji', 'angry');
-                    } else if (button.classList.contains("danceBtn")) {
-                        newButton.classList.add('emoji', 'dance');
-                    } else  {
-                        newButton.classList.add('emoji');
-                    }
+                navigator.clipboard.writeText(emoji).then(() => {
+                    const feedback = document.createElement('span');
+                    feedback.textContent = 'Copied!';
+                    feedback.style.color = 'green';
+                    feedback.style.marginLeft = '10px';
+                    button.parentNode.appendChild(feedback);
 
-                    newButton.setAttribute('data-emoji', userTextmoji);
-                    newButton.textContent = userTextmoji;
-
-                    // Append new textmoji to emoji list
-                    document.querySelector('.emoji-list').appendChild(newButton);
-                    document.getElementById('userTextmoji').value = '';
-                    addFilterDiv.classList.toggle("hidden");
-                    toolboxDiv.classList.toggle("hidden");
-                    seperator.classList.toggle("hidden");
-                }
+                    setTimeout(() => feedback.remove(), 1000);
+                }).catch(err => console.error('Failed to copy text: ', err));
             });
         });
-    });
+    }
+    attachEmojiCopyListeners(); // Call function after initial page load
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const emojiParts = document.querySelectorAll(".emojiPart");
-        const eyesBtn = document.querySelector(".eyesBtn");
-        const mouthBtn = document.querySelector(".mouthBtn");
-        const armsBtn = document.querySelector(".armsBtn");
-        const toolboxDiv = document.getElementById("toolboxDiv");
-    
-        function showOnly(category) {
-            emojiParts.forEach(part => {
-                if (part.classList.contains(category)) {
-                    part.classList.remove("hidden");
-                } else {
-                    part.classList.add("hidden");
-                }
+    // Add new emoji functionality
+    const addTextmojiButton = document.getElementById("addTextmoji");
+    if (addTextmojiButton) {
+        addTextmojiButton.addEventListener('click', function () {
+            const addFilterDiv = document.getElementById('addFilterDiv');
+            addFilterDiv.classList.toggle("hidden");
+
+            const filterAddButtons = document.querySelectorAll('.filterAdd');
+
+            filterAddButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const userTextmojiValue = userTextmoji.value.trim();
+
+                    if (userTextmojiValue !== '') {
+                        const newButton = document.createElement('button');
+                        newButton.classList.add('emoji');
+
+                        if (button.classList.contains("happyBtn")) {
+                            newButton.classList.add('happy');
+                        } else if (button.classList.contains("angryBtn")) {
+                            newButton.classList.add('angry');
+                        } else if (button.classList.contains("danceBtn")) {
+                            newButton.classList.add('dance');
+                        }
+
+                        newButton.setAttribute('data-emoji', userTextmojiValue);
+                        newButton.textContent = userTextmojiValue;
+
+                        document.querySelector('.emoji-list').appendChild(newButton);
+                        userTextmoji.value = '';
+                        addFilterDiv.classList.toggle("hidden");
+                        toolboxDiv.classList.toggle("hidden");
+                        seperator.classList.toggle("hidden");
+
+                        attachEmojiCopyListeners(); // Reattach event listeners to new buttons
+                    }
+                });
             });
-        }
-    
-        if (eyesBtn) eyesBtn.addEventListener("click", () => showOnly("eyes"));
-        if (mouthBtn) mouthBtn.addEventListener("click", () => showOnly("mouth"));
-        if (armsBtn) armsBtn.addEventListener("click", () => showOnly("arms"));
-    });
-    
-    
-    
-    
+        });
+    }
 
-    
-    
+    // ---- CUSTOM EMOJI ----
+    const eyesBtn = document.getElementById("eyesBtn");
+    const armsBtn = document.getElementById("armsBtn");
+    const mouthBtn = document.getElementById("mouthBtn");
 
+    function showCategory(category) {
+        console.log(`Filtering: ${category}`);
+        
+        const emojiParts = document.querySelectorAll(".emojiPart");
+        emojiParts.forEach(part => {
+            part.style.display = part.classList.contains(category) ? "block" : "none";
+        });
+    }
 
-    
+    if (eyesBtn) eyesBtn.addEventListener("click", () => showCategory("eyes"));
+    if (armsBtn) armsBtn.addEventListener("click", () => showCategory("arm"));
+    if (mouthBtn) mouthBtn.addEventListener("click", () => showCategory("mouth"));
+
+    // Add clicked emoji to text input
+    function attachEmojiPartListeners() {
+        document.querySelectorAll(".emojiPart").forEach(button => {
+            button.addEventListener("click", function () {
+                const emoji = this.getAttribute("data-emoji");
+                userTextmoji.value += emoji;
+            });
+        });
+    }
+    attachEmojiPartListeners();
 });
